@@ -60,6 +60,12 @@ in
             type = lib.types.str;
             default = "7d";
           };
+          ENABLE_DELETION = lib.mkOption {
+            type = lib.types.bool;
+            default = false;
+            apply = lib.boolToString;
+            description = "Enables wether ingestions can be deleted from the instance";
+          };
         };
       };
     };

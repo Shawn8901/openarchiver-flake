@@ -12,13 +12,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "openarchiver";
-  version = "0.4.1";
+  version = "0.4.2";
 
   src = fetchFromGitHub {
     owner = "LogicLabs-OU";
     repo = "openarchiver";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-vyhoZb8sdIczRlTWQO+dTEDyQY5f/s+3/w9xDs/2524=";
+    hash = "sha256-NJFatOdDO63Xj3AOqzlt9MbEZ8/xmrMxv4vNq7HlFsc=";
   };
 
   pnpmDeps = fetchPnpmDeps {

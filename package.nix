@@ -12,20 +12,20 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "openarchiver";
-  version = "0.4.2";
+  version = "0.5.0";
 
   src = fetchFromGitHub {
     owner = "LogicLabs-OU";
     repo = "openarchiver";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-NJFatOdDO63Xj3AOqzlt9MbEZ8/xmrMxv4vNq7HlFsc=";
+    hash = "sha256-cUOFsNkznSggqkeVowLs7C2ofO02Qh8LIWGc6EKS7iw=";
   };
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
     pnpm = pnpm_10;
     fetcherVersion = 3;
-    hash = "sha256-otVkKL82ENOxm6r8bYpTJ6cCUd3N2a/7htT8pccW/f0=";
+    hash = "sha256-WL8AL9LylQDY15PUF7WY4TT37f2hUhrXv4NgCEqO17A=";
 
     inherit (finalAttrs) postPatch pnpmInstallFlags;
   };
@@ -40,8 +40,8 @@ stdenv.mkDerivation (finalAttrs: {
   env.CI = true;
 
   postPatch = ''
-    substituteInPlace package.json --replace-fail '"packageManager": "pnpm@10.13.1"' '"packageManager": "pnpm"'
-    substituteInPlace package.json --replace-fail '"pnpm": "10.13.1"' '"pnpm": "*"'
+    substituteInPlace package.json --replace-fail '"packageManager": "pnpm@10.13.1"' '"packageManager": "pnpm@10"'
+    substituteInPlace package.json --replace-fail '"pnpm": "10.13.1"' '"pnpm": "^10"'
   '';
 
   pnpmInstallFlags = [
